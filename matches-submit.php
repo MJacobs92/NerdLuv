@@ -12,7 +12,6 @@ $userName = $_GET["name"];
 
 $sqlQuery = "SELECT * FROM singles where name = '" . $userName . "';";
 $returned_singles = mysqli_query($conn, $sqlQuery);
-// echo $returned_singles;
 
 while ($row = $returned_singles->fetch_assoc()) {
         $current_single_id = $row["id"];
@@ -36,7 +35,7 @@ while ($row = $returned_singles->fetch_assoc()) {
        
         $returned_seeking_age = mysqli_query($conn, $sqlQuery);
         $current_single_seeking_ages = $returned_seeking_age->fetch_assoc();
-        // echo $current_single_seeking_ages;
+       
         $current_single_min_age = (int)$current_single_seeking_ages["min_age"];
         $current_single_max_age = (int)$current_single_seeking_ages["max_age"];
     }
@@ -87,7 +86,6 @@ function getMatchResults($conn, $current_single_id, $current_single_gender, $cur
 	}
 
 	$sqlQuery = "SELECT singles.name, singles.gender, singles.age, personality_types.type as personality_types, favorite_os.os as favorite_os FROM singles JOIN personality_types ON singles.id = personality_types.single_id JOIN seeking_age on singles.id = seeking_age.single_id JOIN favorite_os ON singles.id = favorite_os.single_id WHERE singles.gender = '$gender' and singles.age >= $current_single_min_age and singles.age <= $current_single_max_age and seeking_age.min_age <= $current_single_age and seeking_age.max_age >= $current_single_age and favorite_os.os = '$current_single_os'; ";
-	// echo $sqlQuery;
 
 	$results = mysqli_query($conn, $sqlQuery);
 

@@ -52,13 +52,7 @@ $persona = $_POST['persona'];
 $minage = $_POST['minage'];
 $maxage = $_POST['maxage'];
 
-// echo $_POST;
-
-// global $conn;
-
 $insertionSQL = "INSERT INTO singles (name, gender, age) VALUES ('$userName', '$gender', '$age')";
-
-echo $insertionSQL;
 
 mysqli_query($conn,$insertionSQL);
 
@@ -73,7 +67,6 @@ $insertionSQL = "INSERT INTO personality_types (single_id, type) VALUES ('$singl
 mysqli_query($conn,$insertionSQL);
 
 $insertionSQL = "INSERT INTO seeking_age (single_id, min_age, max_age) VALUES ('$single_id','$minage','$maxage')";
-echo $insertionSQL;
 
 mysqli_query($conn,$insertionSQL);
 
