@@ -1,5 +1,6 @@
 <?php                                                                           
-  require_once('credentials.php');                                              
+  require_once('credentials.php');   
+  global $conn;                                           
                                                                                                                                             
     $conn = mysqli_connect(SERVER_URL, USER, PASSWORD, DB_NAME);            
     if(mysqli_connect_errno()) {                                                   

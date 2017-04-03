@@ -2,7 +2,7 @@
 	  include("db_connection.php");
 
 	  error_reporting(E_ALL);
-ini_set('display_errors', 1);
+	  ini_set('display_errors', 1);
 ?>
 
 <!-- Take form input from signup.php and write it to the singles.txt file -->
